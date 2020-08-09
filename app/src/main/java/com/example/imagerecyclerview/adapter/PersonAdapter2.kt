@@ -1,6 +1,7 @@
 package com.example.imagerecyclerview.adapter
 
 
+
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,25 +9,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.imagerecyclerview.R
 import com.example.imagerecyclerview.model.Person
+import com.example.imagerecyclerview.model.Person2
 import kotlinx.android.synthetic.main.perosn_item.view.*
+import kotlinx.android.synthetic.main.person_item2.view.*
 
-class PersonAdapter(var personList: ArrayList<Person>) :
-    RecyclerView.Adapter<PersonAdapter.PersonViewHolder>() {
+class PersonAdapter2(var personBList: ArrayList<Person2>) :
+    RecyclerView.Adapter<PersonAdapter2.PersonViewHolder>() {
 
 
 
-   class PersonViewHolder(itemView: View) :
+    class PersonViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
 
-        fun bindPerson(person: Person) {
-            itemView.imageView.setImageResource(person.image)
-            itemView.textView.text = person.name
-            itemView.textView1.text  = person.name1
-
-
-
-
+        fun bindPerson(person2: Person2) {
+           itemView.txtName1.text = person2.name
+            itemView.txtName2.text = person2.name1
+            itemView.txtName3.text = person2.name2
+            itemView.txtName4.text = person2.name3
+            itemView.imageView5.setImageResource(person2.image)
 
 
         }
@@ -37,7 +38,7 @@ class PersonAdapter(var personList: ArrayList<Person>) :
     //choose layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(
-            R.layout.perosn_item,
+            R.layout.person_item2,
             parent, false
         )
         return PersonViewHolder(view)
@@ -45,13 +46,13 @@ class PersonAdapter(var personList: ArrayList<Person>) :
 
     //count
     override fun getItemCount(): Int {
-        return personList.size
+        return personBList.size
 
     }
 
     //position
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) {
-        holder.bindPerson(personList[position])
+        holder.bindPerson(personBList[position])
     }
 
 
